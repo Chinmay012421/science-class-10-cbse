@@ -1,334 +1,847 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Science | Class 10 CBSE</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial, sans-serif;
+background:#050b16;
+color:#eaf3ff;
+line-height:1.6;
+}
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+background:rgba(5,11,22,.9);
+backdrop-filter:blur(12px);
+border-bottom:1px solid #173451;
+}
+nav{
+max-width:1200px;
+height:72px;
+margin:auto;
+padding:0 25px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+.logo{
+font-weight:bold;
+font-size:21px;
+letter-spacing:2px;
+}
+.logo span{color:#4da3ff}
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+nav a{
+color:#a9bad0;
+text-decoration:none;
+transition:.3s;
+}
+nav a:hover{color:#4da3ff}
+.menu{
+display:none;
+font-size:25px;
+background:none;
+border:0;
+color:white;
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-```
+.hero{
+min-height:100vh;
+padding:140px 8% 80px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:
+radial-gradient(circle at 80% 45%,rgba(30,120,255,.2),transparent 30%),
+#050b16;
+}
+.hero-content{max-width:680px}
+.badge{
+display:inline-block;
+border:1px solid #287fd8;
+color:#55aaff;
+padding:7px 15px;
+border-radius:30px;
+font-size:12px;
+letter-spacing:1px;
+}
+h1{
+font-size:clamp(45px,7vw,80px);
+line-height:1.05;
+margin:25px 0;
+}
+h1 span{color:#4da3ff}
+.hero p{
+color:#91a6bd;
+font-size:17px;
+max-width:600px;
+}
+.buttons{
+display:flex;
+gap:15px;
+margin-top:30px;
+}
+.btn{
+padding:13px 22px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
+.primary{
+background:#1677ff;
+color:white;
+}
+.primary:hover{transform:translateY(-3px)}
+.secondary{
+border:1px solid #29415f;
+color:#c5d7eb;
+}
+.secondary:hover{border-color:#4da3ff;color:#4da3ff}
 
+/* ATOM */
+.atom{
+width:350px;
+height:350px;
+position:relative;
+margin-right:5%;
+}
+.orbit{
+position:absolute;
+width:100%;
+height:45%;
+top:28%;
+border:1px solid #287fd8;
+border-radius:50%;
+}
+.o1{transform:rotate(60deg);animation:spin 7s linear infinite}
+.o2{transform:rotate(-60deg);animation:spin2 8s linear infinite}
+.o3{animation:spin 9s linear infinite}
+.nucleus{
+position:absolute;
+width:45px;
+height:45px;
+border-radius:50%;
+background:#1680ff;
+box-shadow:0 0 40px #1680ff;
+top:44%;
+left:44%;
+}
+@keyframes spin{
+from{transform:rotate(60deg)}
+to{transform:rotate(420deg)}
+}
+@keyframes spin2{
+from{transform:rotate(-60deg)}
+to{transform:rotate(-420deg)}
+}
+
+section{padding:100px 8%}
+.dark-section{background:#07101e}
+
+.heading{
+display:flex;
+gap:15px;
+align-items:center;
+margin-bottom:40px;
+}
+.heading span{color:#4da3ff}
+.heading h2{font-size:35px}
+
+/* SUBJECTS */
+.subjects{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+.subject{
+background:#091525;
+border:1px solid #17304d;
+padding:30px;
+border-radius:15px;
+transition:.3s;
+}
+.subject:hover{
+transform:translateY(-8px);
+border-color:#287fd8;
+}
+.subject-icon{font-size:35px;margin-bottom:15px}
+.subject h3{font-size:22px;margin-bottom:10px}
+.subject p{color:#8499b2}
+
+/* FILTERS */
+.filters{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+.filter{
+padding:9px 18px;
+border-radius:30px;
+border:1px solid #28435e;
+background:#091525;
+color:#9db2ca;
+cursor:pointer;
+}
+.filter.active,.filter:hover{
+background:#1677ff;
+border-color:#1677ff;
+color:white;
+}
+
+/* CHAPTERS */
+.chapters-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+.chapter{
+background:#091525;
+border:1px solid #17304d;
+padding:27px;
+border-radius:15px;
+transition:.3s;
+}
+.chapter:hover{
+transform:translateY(-7px);
+border-color:#287fd8;
+}
+.chapter small{
+color:#4da3ff;
+letter-spacing:1px;
+}
+.chapter h3{
+font-size:21px;
+margin:10px 0;
+}
+.chapter p{
+font-size:13px;
+color:#8fa4bb;
+}
+.read{
+margin-top:18px;
+padding:10px 16px;
+background:#1677ff;
+border:0;
+border-radius:7px;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+.read:hover{background:#328bff}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+.gallery img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:15px;
+border:1px solid #17304d;
+transition:.5s;
+}
+.gallery img:hover{transform:scale(1.03)}
+
+/* ABOUT */
+.about p{
+max-width:800px;
+color:#91a6bd;
+margin:15px 0;
+}
+.stats{
+display:flex;
+gap:70px;
+margin-top:35px;
+}
+.stat strong{
+font-size:38px;
+color:#4da3ff;
+display:block;
+}
+.stat span{color:#71869e}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.82);
+z-index:2000;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+.modal.show{display:flex}
+.modal-box{
+background:#091525;
+border:1px solid #287fd8;
+border-radius:18px;
+padding:35px;
+width:min(850px,100%);
+max-height:90vh;
+overflow:auto;
+position:relative;
+box-shadow:0 20px 70px rgba(0,0,0,.6);
+animation:popup .3s ease;
+}
+@keyframes popup{
+from{transform:translateY(30px);opacity:0}
+to{transform:translateY(0);opacity:1}
+}
+.close{
+position:absolute;
+right:18px;
+top:10px;
+background:none;
+border:0;
+color:#9db2ca;
+font-size:32px;
+cursor:pointer;
+}
+.modal-box h2{
+font-size:32px;
+margin:10px 0;
+}
+.modal-box .overview{
+color:#a3b7cc;
+margin-bottom:25px;
+}
+.info{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+.info-box{
+background:#07101e;
+border:1px solid #17304d;
+padding:20px;
+border-radius:12px;
+}
+.info-box h3{
+margin-bottom:10px;
+color:#55aaff;
+}
+.info-box ul{
+padding-left:20px;
+color:#91a6bd;
+}
+.info-box li{margin:7px 0}
+.revision{
+margin-top:20px;
+padding:20px;
+background:#07101e;
+border-left:3px solid #1677ff;
+}
+.revision p{color:#9db2c9}
+
+/* FOOTER */
+footer{
+padding:45px;
+text-align:center;
+background:#040914;
+border-top:1px solid #17304d;
+}
+footer p{color:#71869e;margin-top:8px}
+
+/* ANIMATION */
+.fade{
+opacity:0;
+transform:translateY(25px);
+transition:.7s;
+}
+.fade.visible{
+opacity:1;
+transform:none;
+}
+
+@media(max-width:850px){
+.menu{display:block}
+nav ul{
+display:none;
+position:absolute;
+top:72px;
+left:0;
+width:100%;
+background:#07101e;
+padding:25px;
+flex-direction:column;
+align-items:center;
+}
+nav ul.open{display:flex}
+.hero{
+flex-direction:column;
+text-align:center;
+}
+.hero p{margin:auto}
+.buttons{justify-content:center;flex-wrap:wrap}
+.atom{
+width:280px;
+height:280px;
+margin:70px 0 0;
+}
+.subjects,.chapters-grid{
+grid-template-columns:1fr 1fr;
+}
+}
+@media(max-width:600px){
+section{padding:75px 6%}
+.subjects,.chapters-grid,.gallery,.info{
+grid-template-columns:1fr;
+}
+h1{font-size:48px}
+.stats{gap:30px;flex-wrap:wrap}
+.modal-box{padding:25px 20px}
+}
+</style>
 </head>
 
 <body>
 
-```
-<!-- Navigation -->
 <header>
-    <nav class="navbar">
+<nav>
+<div class="logo"><span>SCIENCE</span> • CLASS 10</div>
 
-        <div class="logo">
-            <span>SCIENCE</span>
-            <small>CLASS 10 CBSE</small>
-        </div>
+<button class="menu" onclick="menu()">☰</button>
 
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#chapters">Chapters</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
-
-    </nav>
+<ul id="nav">
+<li><a href="#home">Home</a></li>
+<li><a href="#chapters">Chapters</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#about">About</a></li>
+</ul>
+</nav>
 </header>
 
-
-<!-- Hero -->
 <section id="home" class="hero">
 
-    <div class="hero-content">
+<div class="hero-content fade">
+<div class="badge">CLASS 10 • CBSE</div>
 
-        <div class="badge">
-            CLASS 10 • CBSE
-        </div>
+<h1>Explore the World of <span>Science</span></h1>
 
-        <h1>
-            Explore the World of
-            <span>Science</span>
-        </h1>
+<p>
+Discover Chemistry, Biology and Physics through interactive
+chapter notes, important concepts and visual learning.
+</p>
 
-        <p>
-            Discover Physics, Chemistry, Biology and the fascinating
-            science behind the world around us.
-        </p>
+<div class="buttons">
+<a href="#chapters" class="btn primary">Explore Chapters →</a>
+<a href="#gallery" class="btn secondary">View Gallery</a>
+</div>
+</div>
 
-        <div class="hero-buttons">
-            <a href="#chapters" class="btn primary">
-                Explore Chapters →
-            </a>
-
-            <a href="#gallery" class="btn secondary">
-                View Gallery
-            </a>
-        </div>
-
-    </div>
-
-    <div class="science-orbit">
-
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-
-        <div class="atom">
-            <div class="nucleus"></div>
-            <div class="electron e1"></div>
-            <div class="electron e2"></div>
-            <div class="electron e3"></div>
-        </div>
-
-    </div>
+<div class="atom">
+<div class="orbit o1"></div>
+<div class="orbit o2"></div>
+<div class="orbit o3"></div>
+<div class="nucleus"></div>
+</div>
 
 </section>
 
 
-<!-- Subjects -->
-<section class="subjects">
+<section class="dark-section">
 
-    <div class="section-title">
-        <span>01</span>
-        <h2>Major Areas</h2>
-    </div>
+<div class="heading fade">
+<span>01</span>
+<h2>Major Areas</h2>
+</div>
 
-    <div class="subject-grid">
+<div class="subjects">
 
-        <div class="subject-card">
-            <div class="icon">⚡</div>
-            <h3>Physics</h3>
-            <p>
-                Study light, electricity, magnetic effects,
-                motion and energy.
-            </p>
-        </div>
+<div class="subject fade">
+<div class="subject-icon">⚡</div>
+<h3>Physics</h3>
+<p>Light, electricity, magnetic effects and sources of energy.</p>
+</div>
 
-        <div class="subject-card">
-            <div class="icon">⚗</div>
-            <h3>Chemistry</h3>
-            <p>
-                Explore chemical reactions, acids, bases,
-                metals and carbon compounds.
-            </p>
-        </div>
+<div class="subject fade">
+<div class="subject-icon">⚗️</div>
+<h3>Chemistry</h3>
+<p>Chemical reactions, acids, metals, carbon compounds and periodic classification.</p>
+</div>
 
-        <div class="subject-card">
-            <div class="icon">🧬</div>
-            <h3>Biology</h3>
-            <p>
-                Learn about life processes, reproduction,
-                heredity and our environment.
-            </p>
-        </div>
+<div class="subject fade">
+<div class="subject-icon">🧬</div>
+<h3>Biology</h3>
+<p>Life processes, control, reproduction, heredity and environment.</p>
+</div>
 
-    </div>
+</div>
+</section>
+
+
+<section id="chapters">
+
+<div class="heading fade">
+<span>02</span>
+<h2>Science Chapters</h2>
+</div>
+
+<p style="color:#8297af;margin-bottom:25px">
+Click any chapter to read its information.
+</p>
+
+<div class="filters">
+<button class="filter active" onclick="filterChapters('all',this)">All</button>
+<button class="filter" onclick="filterChapters('Chemistry',this)">Chemistry</button>
+<button class="filter" onclick="filterChapters('Biology',this)">Biology</button>
+<button class="filter" onclick="filterChapters('Physics',this)">Physics</button>
+</div>
+
+<div id="chaptersGrid" class="chapters-grid"></div>
 
 </section>
 
 
-<!-- Chapters -->
-<section id="chapters" class="chapters">
+<section id="gallery" class="dark-section">
 
-    <div class="section-title">
-        <span>02</span>
-        <h2>Class 10 Science Chapters</h2>
-    </div>
+<div class="heading fade">
+<span>03</span>
+<h2>Science Gallery</h2>
+</div>
 
-    <p class="section-description">
-        Select a subject to explore important chapters.
-    </p>
-
-    <div class="chapter-grid">
-
-        <div class="chapter-card physics">
-            <span class="chapter-number">01</span>
-            <h3>Physics</h3>
-
-            <ul>
-                <li>Light – Reflection and Refraction</li>
-                <li>The Human Eye and the Colourful World</li>
-                <li>Electricity</li>
-                <li>Magnetic Effects of Electric Current</li>
-                <li>Sources of Energy</li>
-            </ul>
-
-            <button onclick="showMessage('Physics chapters selected!')">
-                Explore →
-            </button>
-        </div>
-
-
-        <div class="chapter-card chemistry">
-            <span class="chapter-number">02</span>
-            <h3>Chemistry</h3>
-
-            <ul>
-                <li>Chemical Reactions and Equations</li>
-                <li>Acids, Bases and Salts</li>
-                <li>Metals and Non-metals</li>
-                <li>Carbon and its Compounds</li>
-                <li>Periodic Classification of Elements</li>
-            </ul>
-
-            <button onclick="showMessage('Chemistry chapters selected!')">
-                Explore →
-            </button>
-        </div>
-
-
-        <div class="chapter-card biology">
-            <span class="chapter-number">03</span>
-            <h3>Biology</h3>
-
-            <ul>
-                <li>Life Processes</li>
-                <li>Control and Coordination</li>
-                <li>How do Organisms Reproduce?</li>
-                <li>Heredity</li>
-                <li>Our Environment</li>
-            </ul>
-
-            <button onclick="showMessage('Biology chapters selected!')">
-                Explore →
-            </button>
-        </div>
-
-    </div>
+<div class="gallery">
+<img class="fade" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=85" alt="Science laboratory">
+<img class="fade" src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=85" alt="Biology">
+<img class="fade" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1200&q=85" alt="Physics">
+<img class="fade" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=85" alt="Chemistry">
+</div>
 
 </section>
 
 
-<!-- Gallery -->
-<section id="gallery" class="gallery-section">
+<section id="about">
 
-    <div class="section-title">
-        <span>03</span>
-        <h2>Science Gallery</h2>
-    </div>
+<div class="heading fade">
+<span>04</span>
+<h2>About This Project</h2>
+</div>
 
-    <p class="section-description">
-        A visual collection representing different areas of science.
-    </p>
+<div class="about fade">
+<p>
+This website is a Class 10 CBSE Science project designed to make
+Science learning more interactive and visually engaging.
+</p>
 
-    <div class="gallery">
+<p>
+Use the chapter cards to revise important concepts from Chemistry,
+Biology and Physics.
+</p>
 
-        <div class="gallery-item">
-            <img
-                src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80"
-                alt="Science laboratory">
-            <div class="gallery-overlay">
-                <h3>Laboratory</h3>
-                <p>Experiment • Observe • Discover</p>
-            </div>
-        </div>
+<div class="stats">
+<div class="stat">
+<strong>13</strong>
+<span>Chapters</span>
+</div>
 
-        <div class="gallery-item">
-            <img
-                src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=80"
-                alt="Biology">
-            <div class="gallery-overlay">
-                <h3>Biology</h3>
-                <p>Life • Cells • Organisms</p>
-            </div>
-        </div>
+<div class="stat">
+<strong>3</strong>
+<span>Subjects</span>
+</div>
 
-        <div class="gallery-item">
-            <img
-                src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=900&q=80"
-                alt="Physics">
-            <div class="gallery-overlay">
-                <h3>Physics</h3>
-                <p>Energy • Motion • Forces</p>
-            </div>
-        </div>
-
-        <div class="gallery-item">
-            <img
-                src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=80"
-                alt="Chemistry laboratory">
-            <div class="gallery-overlay">
-                <h3>Chemistry</h3>
-                <p>Atoms • Reactions • Matter</p>
-            </div>
-        </div>
-
-    </div>
+<div class="stat">
+<strong>∞</strong>
+<span>Discoveries</span>
+</div>
+</div>
+</div>
 
 </section>
 
 
-<!-- About -->
-<section id="about" class="about">
-
-    <div class="about-content">
-
-        <div class="section-title">
-            <span>04</span>
-            <h2>About This Project</h2>
-        </div>
-
-        <p>
-            This website is a Class 10 CBSE Science project designed
-            to present scientific concepts in an interactive and
-            visually engaging way.
-        </p>
-
-        <p>
-            Science helps us understand the natural world through
-            observation, experimentation and logical reasoning.
-        </p>
-
-        <div class="stats">
-
-            <div>
-                <strong>3</strong>
-                <span>Major Subjects</span>
-            </div>
-
-            <div>
-                <strong>15+</strong>
-                <span>Topics</span>
-            </div>
-
-            <div>
-                <strong>∞</strong>
-                <span>Questions</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- Footer -->
 <footer>
-
-    <div class="footer-logo">
-        SCIENCE
-    </div>
-
-    <p>
-        Class 10 CBSE • Science Project
-    </p>
-
-    <p class="copyright">
-        © 2026 Science Class 10. Made for educational purposes.
-    </p>
-
+<strong>SCIENCE • CLASS 10 CBSE</strong>
+<p>Educational Science Project • 2026</p>
 </footer>
 
 
-<!-- Notification -->
-<div id="notification"></div>
+<!-- CHAPTER POPUP -->
 
-<script src="script.js"></script>
-```
+<div id="modal" class="modal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeChapter()">×</button>
+
+<small id="modalSubject"></small>
+
+<h2 id="modalTitle"></h2>
+
+<p class="overview" id="modalOverview"></p>
+
+<div class="info">
+
+<div class="info-box">
+<h3>Key Concepts</h3>
+<ul id="concepts"></ul>
+</div>
+
+<div class="info-box">
+<h3>Important Points</h3>
+<ul id="points"></ul>
+</div>
+
+</div>
+
+<div class="revision">
+<h3>Quick Revision</h3>
+<p id="revision"></p>
+</div>
+
+</div>
+</div>
+
+
+<script>
+
+const chapters=[
+
+{
+subject:"Chemistry",
+title:"Chemical Reactions and Equations",
+overview:"A chemical reaction is a process in which substances change into new substances with different properties.",
+concepts:["Chemical equations","Balancing equations","Combination reactions","Decomposition reactions","Displacement reactions","Oxidation and reduction"],
+points:["Chemical equations must obey conservation of mass.","Oxidation and reduction occur together in redox reactions.","Corrosion and rancidity are effects of oxidation."],
+revision:"Remember the main types of reactions and how to balance chemical equations."
+},
+
+{
+subject:"Chemistry",
+title:"Acids, Bases and Salts",
+overview:"This chapter explains acids, bases, indicators, pH, neutralisation and important salts.",
+concepts:["Acids and bases","Indicators","pH scale","Neutralisation","Baking soda","Washing soda","Bleaching powder"],
+points:["pH below 7 is acidic.","pH above 7 is basic.","Acid + Base → Salt + Water."],
+revision:"Revise indicators, pH, neutralisation and the uses of important salts."
+},
+
+{
+subject:"Chemistry",
+title:"Metals and Non-metals",
+overview:"Metals and non-metals have different physical and chemical properties.",
+concepts:["Physical properties","Reactivity series","Ionic compounds","Extraction","Corrosion","Alloys"],
+points:["The reactivity series helps predict reactions.","Ionic compounds generally have high melting points.","Alloys are mixtures of metals or metals with other elements."],
+revision:"Learn the reactivity series, extraction methods and corrosion prevention."
+},
+
+{
+subject:"Chemistry",
+title:"Carbon and Its Compounds",
+overview:"Carbon forms a huge number of compounds because of tetravalency and catenation.",
+concepts:["Covalent bonding","Hydrocarbons","Homologous series","Functional groups","Ethanol","Ethanoic acid","Soaps"],
+points:["Carbon forms four covalent bonds.","Catenation allows carbon atoms to form chains.","Soap molecules have hydrophilic and hydrophobic parts."],
+revision:"Focus on tetravalency, catenation, functional groups and homologous series."
+},
+
+{
+subject:"Chemistry",
+title:"Periodic Classification of Elements",
+overview:"The periodic table arranges elements according to their atomic properties.",
+concepts:["Groups","Periods","Valency","Atomic size","Metallic character"],
+points:["Elements in the same group show similar properties.","Atomic size generally decreases across a period.","Atomic size generally increases down a group."],
+revision:"Revise groups, periods and periodic trends."
+},
+
+{
+subject:"Biology",
+title:"Life Processes",
+overview:"Life processes are essential activities required for maintenance and survival.",
+concepts:["Nutrition","Respiration","Transportation","Excretion","Photosynthesis","Human circulation"],
+points:["Plants prepare food through photosynthesis.","The heart pumps blood throughout the body.","Nephrons are functional units of kidneys."],
+revision:"Revise nutrition, respiration, transportation and excretion."
+},
+
+{
+subject:"Biology",
+title:"Control and Coordination",
+overview:"Organisms coordinate their activities using nervous systems and hormones.",
+concepts:["Neuron","Reflex action","Brain","Plant hormones","Tropic movements","Animal hormones"],
+points:["Reflex actions are quick automatic responses.","Auxin influences plant growth.","Hormones act as chemical messengers."],
+revision:"Revise neurons, reflex arcs, brain regions, tropisms and hormones."
+},
+
+{
+subject:"Biology",
+title:"How do Organisms Reproduce?",
+overview:"Reproduction allows organisms to produce new individuals.",
+concepts:["Asexual reproduction","Sexual reproduction","Reproduction in plants","Human reproduction","Fertilisation"],
+points:["Asexual reproduction generally involves one parent.","Sexual reproduction involves gametes.","Pollination occurs before fertilisation in flowering plants."],
+revision:"Revise types of reproduction and the basic reproductive processes."
+},
+
+{
+subject:"Biology",
+title:"Heredity",
+overview:"Heredity explains how characteristics are transmitted from parents to offspring.",
+concepts:["Genes","Chromosomes","Mendel","Dominant traits","Recessive traits","Variation","Sex determination"],
+points:["Genes are units of heredity.","Traits may be dominant or recessive.","Variation produces differences among organisms."],
+revision:"Practice Mendelian crosses and revise dominant/recessive traits."
+},
+
+{
+subject:"Biology",
+title:"Our Environment",
+overview:"This chapter explains ecosystems, food chains, energy flow and environmental protection.",
+concepts:["Ecosystem","Food chain","Food web","Trophic levels","Biodegradable waste","Ozone"],
+points:["Energy decreases at higher trophic levels.","Biodegradable waste can be broken down biologically.","The ozone layer protects Earth from harmful ultraviolet radiation."],
+revision:"Remember trophic levels, energy flow and biodegradable/non-biodegradable waste."
+},
+
+{
+subject:"Physics",
+title:"Light – Reflection and Refraction",
+overview:"Light undergoes reflection and refraction and can form images using mirrors and lenses.",
+concepts:["Reflection","Spherical mirrors","Mirror formula","Refraction","Lenses","Lens formula","Magnification"],
+points:["Angle of incidence equals angle of reflection.","Concave and convex mirrors form different images.","Refraction occurs when light changes speed between media."],
+revision:"Practice ray diagrams, sign convention, mirror formula and lens formula."
+},
+
+{
+subject:"Physics",
+title:"The Human Eye and the Colourful World",
+overview:"The human eye forms images on the retina and the atmosphere produces optical phenomena.",
+concepts:["Human eye","Accommodation","Myopia","Hypermetropia","Dispersion","Atmospheric refraction"],
+points:["Accommodation changes the focal length of the eye lens.","Myopia is corrected with a suitable concave lens.","Hypermetropia is corrected with a suitable convex lens."],
+revision:"Revise eye defects, lens correction, dispersion and atmospheric refraction."
+},
+
+{
+subject:"Physics",
+title:"Electricity and Magnetic Effects",
+overview:"Electricity and magnetism explain current, circuits, electrical power and magnetic fields.",
+concepts:["Current","Potential difference","Ohm's law","Resistance","Series circuits","Parallel circuits","Electric power","Magnetic field"],
+points:["Ohm's law relates V, I and R under suitable conditions.","P = VI, P = I²R and P = V²/R.","A current-carrying conductor produces a magnetic field."],
+revision:"Practice V-I-R calculations, circuit combinations, electrical power and magnetic field rules."
+}
+
+];
+
+const grid=document.getElementById("chaptersGrid");
+
+function render(filter="all"){
+
+grid.innerHTML="";
+
+chapters.forEach((c,i)=>{
+
+if(filter!=="all" && c.subject!==filter)return;
+
+const card=document.createElement("div");
+
+card.className="chapter fade";
+
+card.innerHTML=`
+<small>CHAPTER ${String(i+1).padStart(2,"0")} • ${c.subject.toUpperCase()}</small>
+<h3>${c.title}</h3>
+<p>${c.overview}</p>
+<button class="read" onclick="openChapter(${i})">
+Read Chapter →
+</button>
+`;
+
+grid.appendChild(card);
+
+});
+
+observe();
+}
+
+function openChapter(i){
+
+const c=chapters[i];
+
+document.getElementById("modalSubject").textContent=c.subject;
+document.getElementById("modalTitle").textContent=c.title;
+document.getElementById("modalOverview").textContent=c.overview;
+
+document.getElementById("concepts").innerHTML=
+c.concepts.map(x=>`<li>${x}</li>`).join("");
+
+document.getElementById("points").innerHTML=
+c.points.map(x=>`<li>${x}</li>`).join("");
+
+document.getElementById("revision").textContent=c.revision;
+
+document.getElementById("modal").classList.add("show");
+
+document.body.style.overflow="hidden";
+}
+
+function closeChapter(){
+document.getElementById("modal").classList.remove("show");
+document.body.style.overflow="";
+}
+
+document.getElementById("modal").addEventListener("click",e=>{
+if(e.target.id==="modal")closeChapter();
+});
+
+document.addEventListener("keydown",e=>{
+if(e.key==="Escape")closeChapter();
+});
+
+function filterChapters(type,button){
+
+document.querySelectorAll(".filter")
+.forEach(x=>x.classList.remove("active"));
+
+button.classList.add("active");
+
+render(type);
+}
+
+function menu(){
+document.getElementById("nav").classList.toggle("open");
+}
+
+function observe(){
+
+const items=document.querySelectorAll(".fade");
+
+if(!("IntersectionObserver" in window)){
+items.forEach(x=>x.classList.add("visible"));
+return;
+}
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+observer.unobserve(entry.target);
+
+}
+
+});
+
+},{threshold:.12});
+
+items.forEach(x=>observer.observe(x));
+}
+
+render();
+observe();
+
+</script>
 
 </body>
 </html>
