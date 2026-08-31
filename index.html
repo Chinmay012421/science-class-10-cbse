@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Science | Class 10 CBSE</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+```
+
+</head>
+
+<body>
+
+```
+<!-- Navigation -->
+<header>
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>SCIENCE</span>
+            <small>CLASS 10 CBSE</small>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#chapters">Chapters</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+
+<!-- Hero -->
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            CLASS 10 • CBSE
+        </div>
+
+        <h1>
+            Explore the World of
+            <span>Science</span>
+        </h1>
+
+        <p>
+            Discover Physics, Chemistry, Biology and the fascinating
+            science behind the world around us.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#chapters" class="btn primary">
+                Explore Chapters →
+            </a>
+
+            <a href="#gallery" class="btn secondary">
+                View Gallery
+            </a>
+        </div>
+
+    </div>
+
+    <div class="science-orbit">
+
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="atom">
+            <div class="nucleus"></div>
+            <div class="electron e1"></div>
+            <div class="electron e2"></div>
+            <div class="electron e3"></div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Subjects -->
+<section class="subjects">
+
+    <div class="section-title">
+        <span>01</span>
+        <h2>Major Areas</h2>
+    </div>
+
+    <div class="subject-grid">
+
+        <div class="subject-card">
+            <div class="icon">⚡</div>
+            <h3>Physics</h3>
+            <p>
+                Study light, electricity, magnetic effects,
+                motion and energy.
+            </p>
+        </div>
+
+        <div class="subject-card">
+            <div class="icon">⚗</div>
+            <h3>Chemistry</h3>
+            <p>
+                Explore chemical reactions, acids, bases,
+                metals and carbon compounds.
+            </p>
+        </div>
+
+        <div class="subject-card">
+            <div class="icon">🧬</div>
+            <h3>Biology</h3>
+            <p>
+                Learn about life processes, reproduction,
+                heredity and our environment.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Chapters -->
+<section id="chapters" class="chapters">
+
+    <div class="section-title">
+        <span>02</span>
+        <h2>Class 10 Science Chapters</h2>
+    </div>
+
+    <p class="section-description">
+        Select a subject to explore important chapters.
+    </p>
+
+    <div class="chapter-grid">
+
+        <div class="chapter-card physics">
+            <span class="chapter-number">01</span>
+            <h3>Physics</h3>
+
+            <ul>
+                <li>Light – Reflection and Refraction</li>
+                <li>The Human Eye and the Colourful World</li>
+                <li>Electricity</li>
+                <li>Magnetic Effects of Electric Current</li>
+                <li>Sources of Energy</li>
+            </ul>
+
+            <button onclick="showMessage('Physics chapters selected!')">
+                Explore →
+            </button>
+        </div>
+
+
+        <div class="chapter-card chemistry">
+            <span class="chapter-number">02</span>
+            <h3>Chemistry</h3>
+
+            <ul>
+                <li>Chemical Reactions and Equations</li>
+                <li>Acids, Bases and Salts</li>
+                <li>Metals and Non-metals</li>
+                <li>Carbon and its Compounds</li>
+                <li>Periodic Classification of Elements</li>
+            </ul>
+
+            <button onclick="showMessage('Chemistry chapters selected!')">
+                Explore →
+            </button>
+        </div>
+
+
+        <div class="chapter-card biology">
+            <span class="chapter-number">03</span>
+            <h3>Biology</h3>
+
+            <ul>
+                <li>Life Processes</li>
+                <li>Control and Coordination</li>
+                <li>How do Organisms Reproduce?</li>
+                <li>Heredity</li>
+                <li>Our Environment</li>
+            </ul>
+
+            <button onclick="showMessage('Biology chapters selected!')">
+                Explore →
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Gallery -->
+<section id="gallery" class="gallery-section">
+
+    <div class="section-title">
+        <span>03</span>
+        <h2>Science Gallery</h2>
+    </div>
+
+    <p class="section-description">
+        A visual collection representing different areas of science.
+    </p>
+
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <img
+                src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80"
+                alt="Science laboratory">
+            <div class="gallery-overlay">
+                <h3>Laboratory</h3>
+                <p>Experiment • Observe • Discover</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=80"
+                alt="Biology">
+            <div class="gallery-overlay">
+                <h3>Biology</h3>
+                <p>Life • Cells • Organisms</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=900&q=80"
+                alt="Physics">
+            <div class="gallery-overlay">
+                <h3>Physics</h3>
+                <p>Energy • Motion • Forces</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=80"
+                alt="Chemistry laboratory">
+            <div class="gallery-overlay">
+                <h3>Chemistry</h3>
+                <p>Atoms • Reactions • Matter</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- About -->
+<section id="about" class="about">
+
+    <div class="about-content">
+
+        <div class="section-title">
+            <span>04</span>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            This website is a Class 10 CBSE Science project designed
+            to present scientific concepts in an interactive and
+            visually engaging way.
+        </p>
+
+        <p>
+            Science helps us understand the natural world through
+            observation, experimentation and logical reasoning.
+        </p>
+
+        <div class="stats">
+
+            <div>
+                <strong>3</strong>
+                <span>Major Subjects</span>
+            </div>
+
+            <div>
+                <strong>15+</strong>
+                <span>Topics</span>
+            </div>
+
+            <div>
+                <strong>∞</strong>
+                <span>Questions</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+<footer>
+
+    <div class="footer-logo">
+        SCIENCE
+    </div>
+
+    <p>
+        Class 10 CBSE • Science Project
+    </p>
+
+    <p class="copyright">
+        © 2026 Science Class 10. Made for educational purposes.
+    </p>
+
+</footer>
+
+
+<!-- Notification -->
+<div id="notification"></div>
+
+<script src="script.js"></script>
+```
+
+</body>
+</html>
